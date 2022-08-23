@@ -1,10 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 prijava = Blueprint('prijava', __name__)
 
 @prijava.route('/prijava')
 def login():
-    return "<p>Prijava</p>"
+    return render_template("prijavi.html")
 
 @prijava.route('/odjava')
 def odjava():
@@ -12,4 +12,4 @@ def odjava():
 
 @prijava.route('/registriraj')
 def registriraj():
-    return "<p>Registriraj</p>"
+    return render_template("registriraj.html")
