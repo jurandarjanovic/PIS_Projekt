@@ -1,4 +1,4 @@
-from web import create_app #web je python paket (importam)
+from website import create_app #web je python paket (importam)
 
 app = create_app()
 
