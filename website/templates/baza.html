@@ -31,6 +31,12 @@
           <a class="nav-item nav-link" id="pocetna" href="/">Početna</a>
       </div>
     </nav>
+  {% with messages = get_flashed_messages(with categories=true) %}
+  {% if messages %}
+    {% for message in message %}
+    {% endfor %}
+  {% endwith %}
+
     <div class="container">
     {% block content %}  {% endblock %}
 
