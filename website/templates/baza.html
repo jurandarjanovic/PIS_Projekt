@@ -31,10 +31,26 @@
           <a class="nav-item nav-link" id="pocetna" href="/">Početna</a>
       </div>
     </nav>
-  {% with messages = get_flashed_messages(with categories=true) %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
-    {% for message in message %}
+    {% for category, message in messages %}
+    {% if category =='error' %}
+    <div class="alert alert-danger alter-dissmisable fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dissmiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dissmisable fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dissmis="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
     {% endfor %}
+    {% endif %}
   {% endwith %}
 
     <div class="container">
